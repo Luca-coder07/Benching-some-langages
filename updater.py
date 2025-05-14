@@ -34,5 +34,5 @@ ax.set_ylim(0, max(percentages) + 10)  # pour laisser de l'espace au-dessus
 
 # 7. Sauvegarde
 plt.tight_layout()
-plt.savefig("images/scorepng")
+plt.savefig("images/score.png")
 
