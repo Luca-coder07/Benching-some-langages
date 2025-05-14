@@ -1,8 +1,8 @@
-# generate_languages_pie.py
+# generate_languages_bar.py
 
 import matplotlib.pyplot as plt
 
-# 1. Données (à adapter selon ton dépôt GitHub)
+# 1. Données à personnaliser
 languages = {
     "Python": 40,
     "C": 25,
@@ -11,25 +11,28 @@ languages = {
     "Go": 10,
 }
 
-# 2. Préparation
-labels = [f"{lang} ({pct}%)" for lang, pct in languages.items()]
-sizes = list(languages.values())
-colors = plt.cm.tab20.colors[:len(languages)]  # palette de couleurs
+# 2. Tri (optionnel) des langages par % décroissant
+languages = dict(sorted(languages.items(), key=lambda item: item[1], reverse=True))
 
-# 3. Création du graphe
-fig, ax = plt.subplots()
-ax.pie(
-    sizes,
-    labels=labels,
-    autopct=None,
-    startangle=90,
-    colors=colors,
-    counterclock=False,
-)
-ax.axis("equal")  # Cercle parfait
-plt.title("Langages utilisés (en %)")
+# 3. Données pour le graphique
+langs = list(languages.keys())
+percentages = list(languages.values())
 
-# 4. Sauvegarde
+# 4. Création du graphique en colonnes
+fig, ax = plt.subplots(figsize=(8, 6))
+bars = ax.bar(langs, percentages, color="#4CAF50")
+
+# 5. Ajouter les pourcentages au-dessus de chaque barre
+for bar in bars:
+    height = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width()/2, height + 1, f'{height}%', ha='center', va='bottom')
+
+# 6. Titres et étiquettes
+ax.set_ylabel("Pourcentage d'utilisation")
+ax.set_title("Langages utilisés")
+ax.set_ylim(0, max(percentages) + 10)  # pour laisser de l'espace au-dessus
+
+# 7. Sauvegarde
 plt.tight_layout()
-plt.savefig("images/score.png")
+plt.savefig("images/scorepng")
 
