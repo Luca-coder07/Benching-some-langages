@@ -12,7 +12,7 @@ languages = {
 }
 
 # 2. Tri (optionnel) des langages par % décroissant
-languages = dict(sorted(languages.items(), key=lambda item: item[1], reverse=True))
+#languages = dict(sorted(languages.items(), key=lambda item: item[1], reverse=True))
 
 # 3. Données pour le graphique
 langs = list(languages.keys())
