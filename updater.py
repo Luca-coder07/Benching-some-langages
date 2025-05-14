@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 
 # 1. Données à personnaliser
 languages = {
-    "Python": 40,
+    "Python": 30,
     "C": 25,
     "JavaScript": 15,
-    "C++": 10,
+    "C++": 20,
     "Go": 10,
 }
 
