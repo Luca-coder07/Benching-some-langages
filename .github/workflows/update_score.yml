@@ -1,0 +1,35 @@
+name: Update Score Graph
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # chaque heure
+  workflow_dispatch:      # permet de le lancer manuellement
+
+jobs:
+  update-graph:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install matplotlib
+
+      - name: Run graph generation script
+        run: python updater.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add images/score.png
+          git commit -m "Update score graph"
+          git push
+
