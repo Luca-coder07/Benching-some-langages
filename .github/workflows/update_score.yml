@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '0 * * * *'  # chaque heure
+    - cron: '*/0 * * * *'  # chaque heure
   workflow_dispatch:      # permet de le lancer manuellement
 
 jobs:
