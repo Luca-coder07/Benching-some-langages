@@ -1,8 +1,7 @@
+name: Update Score Graph
+
 permissions:
   contents: write
-
-
-name: Update Score Graph
 
 on:
   schedule:
