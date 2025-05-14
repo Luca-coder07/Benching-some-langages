@@ -28,7 +28,7 @@ for bar in bars:
     ax.text(bar.get_x() + bar.get_width()/2, height + 1, f'{height}%', ha='center', va='bottom')
 
 # 6. Titres et étiquettes
-ax.set_ylabel("Pourcentage d'utilisation")
+ax.set_ylabel("Temps d'attente en ms")
 ax.set_title("Langages utilisés")
 ax.set_ylim(0, max(percentages) + 10)  # pour laisser de l'espace au-dessus
 
