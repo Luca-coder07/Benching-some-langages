@@ -32,7 +32,7 @@ bars = ax.bar(langs, valeurs, color="#4CAF50")
 # 5. Ajouter les pourcentages au-dessus de chaque barre
 for bar in bars:
     height = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width()/2, height + 1, f'{height}%', ha='center', va='bottom')
+    ax.text(bar.get_x() + bar.get_width()/2, height + 1, f'{height}ms', ha='center', va='bottom')
 
 # 6. Titres et étiquettes
 ax.set_ylabel("Temps d'attente en ms")
